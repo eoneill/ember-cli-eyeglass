@@ -75,6 +75,11 @@ module.exports = {
   },
 
   setupPreprocessorRegistry: function(type, registry) {
+    // if the EYEGLASS_DISABLED flag is set, do nothing
+    if (process.env.EYEGLASS_DISABLED === 'true') {
+      return;
+    }
+
     var addon = this;
 
     registry.add('css', {
